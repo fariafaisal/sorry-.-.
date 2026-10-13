@@ -1,0 +1,360 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    padding: 35px 20px;
+    background-image: url(download.jpg);
+    color: #914f70;
+    font-family: 'Playfair Display', serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.heading {
+    font-family: 'Shalimar', cursive;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.image-frame {
+    width: min(30%, 200px);
+    height: 200px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border: 8px solid white;
+    border-radius: 25px;
+    box-shadow: 0 12px 35px #d98bab35;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.intro {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    margin-bottom: 25px;
+    color: #9d6480;
+}
+
+.hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 28px;
+    border: 1px solid #d78eae;
+    border-radius: 35px;
+    background: #e8a6c2;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: #cb7fa1;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px #d98bab35;
+}
+
+.end-btn {
+    background: white;
+    color: #bb7394;
+}
+
+.end-btn:hover {
+    background: #f8d6e5;
+    color: #914f70;
+}
+
+/* Hide Let's End after clicking it */
+#end:checked ~ .buttons .end-btn {
+    display: none;
+}
+
+/* Reveal letter and CD after clicking Let's Fix */
+#fix:checked ~ .love-section {
+    display: grid;
+    animation: reveal 1s ease forwards;
+}
+
+/* When Let's End is selected, keep the letter hidden */
+#end:checked ~ .love-section {
+    display: none;
+}
+
+.love-section {
+    display: none;
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    gap: 35px;
+    margin: 50px auto 25px;
+    text-align: left;
+}
+
+.letter {
+    padding: 35px;
+    border: 1px solid #f1d6e2;
+    border-radius: 12px 25px 15px 20px;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #fffaf3 0px,
+            #fffaf3 34px,
+            #f1d9e1 35px,
+            #fffaf3 36px
+        );
+    box-shadow: 0 15px 35px #a75b7d20;
+    color: #824661;
+}
+
+.letter h2 {
+    font-family: 'Shalimar', cursive;
+    font-size: 3.8rem;
+    font-weight: normal;
+    margin-bottom: 18px;
+}
+
+.letter p {
+    font-family: 'Shalimar', cursive;
+    font-size: 1.9rem;
+    line-height: 1.45;
+    margin-bottom: 12px;
+}
+
+.letter .signature {
+    text-align: right;
+    font-size: 2.4rem;
+    margin-top: 25px;
+    margin-bottom: 0;
+}
+
+/* Vintage CD */
+
+.music-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 5px;
+}
+
+.cd {
+    width: 210px;
+    height: 210px;
+    border: 8px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: conic-gradient(
+        #e7b8ce,
+        #fff0f5,
+        #c9b9d7,
+        #f9d7e6,
+        #d8c8df,
+        #fff8fa,
+        #d995b6,
+        #e7b8ce
+    );
+    box-shadow: 0 12px 35px #a75b7d30;
+    animation: spin 8s linear infinite;
+}
+
+.cd-center {
+    width: 55px;
+    height: 55px;
+    border: 8px solid #fff7fb;
+    border-radius: 50%;
+    background: #d68eae;
+    box-shadow: inset 0 0 0 4px #f8d7e6;
+}
+
+.song-title {
+    font-family: 'Shalimar', cursive;
+    font-size: 2.6rem;
+    font-weight: normal;
+    margin-top: 25px;
+    color: #a45c7e;
+}
+
+.play-btn {
+    margin-top: 12px;
+    animation: float 1.8s ease-in-out infinite;
+}
+
+.music-note {
+    font-size: 0.8rem;
+    margin-top: 15px;
+    color: #a8758c;
+}
+
+.audio-box {
+    width: 100%;
+    margin-top: 18px;
+}
+
+.audio-box audio {
+    width: 100%;
+    max-width: 300px;
+}
+
+.footer {
+    margin-top: 35px;
+    font-family: 'Shalimar', cursive;
+    font-size: 2rem;
+    color: #b57896;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 800px) {
+    #fix:checked ~ .love-section {
+        grid-template-columns: 1fr;
+    }
+
+    .letter {
+        padding: 25px 20px;
+    }
+
+    .letter p {
+        font-size: 1.7rem;
+    }
+
+    .cd {
+        width: 175px;
+        height: 175px;
+    }
+
+    .image-frame {
+        height: 230px;
+    }
+    
+.music-box {
+    width: 300px;
+    margin: 20px auto;
+    border: 2px solid #ffb6d9;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px #ffc0e0;
+}
+
+.music-box iframe {
+    width: 100%;
+    height: 170px;
+    border: none;
+}
+
+.music-card {
+    width: 300px;
+    margin: 25px auto;
+    padding: 22px 18px;
+    text-align: center;
+    background: linear-gradient(145deg, #fff7fb, #ffe1ef);
+    border: 1px solid #f7b8d4;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px #e99aba35;
+    position: relative;
+    overflow: hidden;
+}
+
+.music-heart {
+    font-size: 35px;
+    color: #e879a9;
+    margin-bottom: 5px;
+}
+
+.music-title {
+    color: #a83e70;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.music-subtitle {
+    color: #c17b9c;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+.music-card audio {
+    width: 100%;
+    height: 40px;
+    accent-color: #e879a9;
+}
+
+.music-card::before {
+    content: "♡";
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    color: #f2a8ca;
+    font-size: 22px;
+}
+
+.music-card::after {
+    content: "♡";
+    position: absolute;
+    bottom: 65px;
+    left: 15px;
+    color: #f2a8ca;
+    font-size: 18px;
+}
+}
